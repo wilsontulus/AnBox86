@@ -27,7 +27,16 @@ function run_Main()
 	
 	# Create the Ubuntu PRoot within Termux
 	# - And initialize paths for our Termux shell instance (also add them to .bashrc for future Termux shell instances)
-	apt install proot-distro git -y
+	apt install git -y
+ 	git clone https://github.com/termux/proot-distro
+  	cd proot-distro
+   	git reset --hard d008ceb9a83821fe5b660697619bdb3c393aaff5
+    	git pull
+     	git reset --hard d008ceb9a83821fe5b660697619bdb3c393aaff5
+      	./install.sh
+       	cd ~/
+	rm -rf proot-distro
+ 
 	linux32 proot-distro install ubuntu-20.04
 	git clone https://github.com/ZhymabekRoman/proot-static # Use a 32bit PRoot instead of 64bit
 	
