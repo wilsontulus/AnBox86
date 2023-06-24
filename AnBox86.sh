@@ -27,7 +27,7 @@ function run_Main()
 	
 	# Create the Ubuntu PRoot within Termux
 	# - And initialize paths for our Termux shell instance (also add them to .bashrc for future Termux shell instances)
-	apt install git -y
+	apt install proot git -y
  	git clone https://github.com/termux/proot-distro
   	cd proot-distro
    	git reset --hard d008ceb9a83821fe5b660697619bdb3c393aaff5
@@ -35,9 +35,11 @@ function run_Main()
      	git reset --hard d008ceb9a83821fe5b660697619bdb3c393aaff5
       	./install.sh
        	cd ~/
-	rm -rf proot-distro
+	# rm -rf proot-distro 
+ 	mv proot-distro proot-distro-git
  
-	linux32 proot-distro install ubuntu-20.04
+	# linux32 proot-distro install ubuntu-20.04
+ 	linux32 proot-distro install ubuntu-20.04
 	git clone https://github.com/ZhymabekRoman/proot-static # Use a 32bit PRoot instead of 64bit
 	
 	# Create a script to start XServerXSDL and log into PRoot as the 'user' account (which we will create later)
